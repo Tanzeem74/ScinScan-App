@@ -9,7 +9,7 @@ class DoctorListPage extends StatefulWidget {
 }
 
 class _DoctorListPageState extends State<DoctorListPage> {
-  // সুপাবেস থেকে ডাক্তারদের ডাটা রিড করার জন্য স্ট্রিম
+  // reading data form database
   final Stream<List<Map<String, dynamic>>> _doctorStream = Supabase
       .instance
       .client
@@ -21,7 +21,7 @@ class _DoctorListPageState extends State<DoctorListPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Skin Specialists"),
-        backgroundColor: const Color(0xFF008080), // আপনার থিম কালার
+        backgroundColor: const Color(0xFF008080),
         elevation: 0,
       ),
       body: Container(
@@ -29,14 +29,13 @@ class _DoctorListPageState extends State<DoctorListPage> {
         child: StreamBuilder<List<Map<String, dynamic>>>(
           stream: _doctorStream,
           builder: (context, snapshot) {
-            // ডাটা লোড হওয়ার সময় লোডিং দেখাবে
+            // loding when data load
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
                 child: CircularProgressIndicator(color: Color(0xFF008080)),
               );
             }
 
-            // যদি কোনো ডাটা না থাকে
             if (!snapshot.hasData || snapshot.data!.isEmpty) {
               return const Center(
                 child: Text(
@@ -64,7 +63,6 @@ class _DoctorListPageState extends State<DoctorListPage> {
                     padding: const EdgeInsets.all(12),
                     child: Row(
                       children: [
-                        // ডাক্তারের ছবি (লিঙ্ক না থাকলে আইকন দেখাবে)
                         CircleAvatar(
                           radius: 35,
                           backgroundColor: Colors.teal.withOpacity(0.1),
@@ -81,7 +79,7 @@ class _DoctorListPageState extends State<DoctorListPage> {
                         ),
                         const SizedBox(width: 15),
 
-                        // ডাক্তারের তথ্য
+                        // doctor details
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,14 +117,13 @@ class _DoctorListPageState extends State<DoctorListPage> {
                           ),
                         ),
 
-                        // কল বাটন
+                        // call button
                         IconButton(
                           icon: const Icon(
                             Icons.phone_in_talk,
                             color: Colors.green,
                           ),
                           onPressed: () {
-                            // এখানে ফোন করার লজিক দিতে পারেন
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(

@@ -30,7 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Top Header Section
+            // Header
             Container(
               height: 180,
               width: double.infinity,
@@ -68,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 30),
 
-            // Profile Information List
+            // Profile Information
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -96,14 +96,12 @@ class _ProfilePageState extends State<ProfilePage> {
 
                   const SizedBox(height: 40),
 
-                  // Edit Profile Button
+                  // Edit Btn
                   SizedBox(
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton.icon(
-                      onPressed: () {
-                        // Edit functionality add kora jabe pore
-                      },
+                      onPressed: () {},
                       icon: const Icon(Icons.edit, color: Colors.white),
                       label: const Text(
                         "Edit Profile",
@@ -126,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  // Profile Tile Widget
+  // Profile Widget
   Widget _buildProfileTile({
     required IconData icon,
     required String title,

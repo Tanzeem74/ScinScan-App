@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7F9),
 
-      // Drawer for Logout and Profile
+      // Drawer 
       drawer: Drawer(
         child: Column(
           children: [
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Top Welcome Banner
+            // Top Banner
             Container(
               padding: const EdgeInsets.all(20),
               width: double.infinity,
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
 
             const SizedBox(height: 30),
 
-            // Dashboard Grid
+            // Dashboard 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: GridView.count(
@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Dashboard Item Builder
+  
   Widget _buildDashboardItem({
     required String title,
     required IconData icon,
