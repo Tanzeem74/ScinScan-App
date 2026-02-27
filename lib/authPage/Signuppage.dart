@@ -107,6 +107,18 @@ class _SignuppageState extends State<Signuppage> {
                       controller: emailController,
                       hint: "Email Address",
                       icon: Icons.email_outlined,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter your email";
+                        }
+
+                        RegExp emailRegex = RegExp(r'^[\w\.-]+@gmail.com$');
+
+                        if (!emailRegex.hasMatch(value)) {
+                          return "Enter a valid email";
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 20),
                     _buildField(
@@ -114,6 +126,22 @@ class _SignuppageState extends State<Signuppage> {
                       hint: "Password",
                       icon: Icons.lock_outline,
                       isPass: true,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter your password";
+                        } else if (value.length < 6) {
+                          return "Need at least 6 characters";
+                        } else if (!RegExp(r'[a-z]').hasMatch(value)) {
+                          return "At least one lowercase letter";
+                        } else if (!RegExp(r'[A-Z]').hasMatch(value)) {
+                          return "At least one uppercase letter";
+                        } else if (!RegExp(r'[0-9]').hasMatch(value)) {
+                          return "At least one digit";
+                        } else if (!RegExp(r'[!@#$%^&*]').hasMatch(value)) {
+                          return "At least one special character";
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 20),
                     _buildField(
@@ -161,6 +189,7 @@ class _SignuppageState extends State<Signuppage> {
     required TextEditingController controller,
     required String hint,
     required IconData icon,
+    String? Function(String?)? validator,
     bool isPass = false,
   }) {
     return Container(
@@ -179,6 +208,7 @@ class _SignuppageState extends State<Signuppage> {
       child: TextFormField(
         controller: controller,
         obscureText: isPass,
+        validator: validator,
         decoration: InputDecoration(
           hintText: hint,
           prefixIcon: Icon(icon, color: Colors.teal),
