@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7F9),
 
-      // Drawer 
+      // Drawer
       drawer: Drawer(
         child: Column(
           children: [
@@ -37,9 +37,9 @@ class _HomePageState extends State<HomePage> {
                 backgroundColor: Colors.white,
                 child: Icon(Icons.person, size: 50, color: Color(0xFF008080)),
               ),
-              accountName: const Text(
-                "User Name",
-                style: TextStyle(fontWeight: FontWeight.bold),
+              accountName: Text(
+                userEmail?.split('@')[0] ?? "name",
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               accountEmail: Text(userEmail ?? "user@email.com"),
             ),
@@ -54,9 +54,14 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.history, color: Colors.teal),
-              title: const Text("Scan History"),
-              onTap: () {},
+              leading: const Icon(Icons.quiz_outlined, color: Colors.teal),
+              title: const Text("Skin Quiz"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SkinQuizPage()),
+                );
+              },
             ),
             const Spacer(),
             const Divider(),
@@ -78,7 +83,7 @@ class _HomePageState extends State<HomePage> {
 
       appBar: AppBar(
         title: const Text(
-          "SkinScan AI Dashboard",
+          "SkinScan Dashboard",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: const Color(0xFF008080),
@@ -132,7 +137,7 @@ class _HomePageState extends State<HomePage> {
 
             const SizedBox(height: 30),
 
-            // Dashboard 
+            // Dashboard
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: GridView.count(
@@ -225,7 +230,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  
   Widget _buildDashboardItem({
     required String title,
     required IconData icon,

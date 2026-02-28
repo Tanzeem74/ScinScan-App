@@ -9,7 +9,7 @@ class DoctorListPage extends StatefulWidget {
 }
 
 class _DoctorListPageState extends State<DoctorListPage> {
-  // reading data form database
+  // rding data form db
   final Stream<List<Map<String, dynamic>>> _doctorStream = Supabase
       .instance
       .client
@@ -79,7 +79,7 @@ class _DoctorListPageState extends State<DoctorListPage> {
                         ),
                         const SizedBox(width: 15),
 
-                        // doctor details
+                        // dr details
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +117,7 @@ class _DoctorListPageState extends State<DoctorListPage> {
                           ),
                         ),
 
-                        // call button
+                        // cl btn
                         IconButton(
                           icon: const Icon(
                             Icons.phone_in_talk,

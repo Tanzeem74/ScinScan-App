@@ -39,11 +39,11 @@ class _LoginpageState extends State<Loginpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7F9), // Light grayish background
+      backgroundColor: const Color(0xFFF5F7F9),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Top Header Section with Custom Design
+            // Top
             Container(
               height: 300,
               decoration: const BoxDecoration(
@@ -67,7 +67,7 @@ class _LoginpageState extends State<Loginpage> {
                     ),
                     const SizedBox(height: 10),
                     const Text(
-                      "SkinScan AI",
+                      "SkinScan",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 32,
@@ -125,8 +125,6 @@ class _LoginpageState extends State<Loginpage> {
                       hint: "Password",
                       icon: Icons.lock_outline,
                       isPassword: true,
-                      validator: (value) =>
-                          value!.length < 6 ? "Password is too short" : null,
                     ),
 
                     const SizedBox(height: 10),
@@ -143,7 +141,7 @@ class _LoginpageState extends State<Loginpage> {
 
                     const SizedBox(height: 30),
 
-                    // Login Button with Gradient
+                    // Login Btn
                     SizedBox(
                       width: double.infinity,
                       height: 55,
@@ -185,7 +183,7 @@ class _LoginpageState extends State<Loginpage> {
 
                     const SizedBox(height: 20),
 
-                    // Signup Option
+                    // Signup
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -219,7 +217,7 @@ class _LoginpageState extends State<Loginpage> {
     );
   }
 
-  // Custom TextField Widget to keep code clean
+  // Custom  Widget
   Widget _buildTextField({
     required TextEditingController controller,
     required String hint,

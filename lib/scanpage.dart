@@ -96,7 +96,7 @@ class _ScanPageState extends State<ScanPage> {
     },
   };
 
-  // 📸 Pick image
+  // Pick img
   Future<void> _pickImage(ImageSource source) async {
     final picker = ImagePicker();
     final XFile? pickedFile = await picker.pickImage(source: source);
@@ -119,7 +119,7 @@ class _ScanPageState extends State<ScanPage> {
     }
   }
 
-  // 🧠 Analyze image
+  // Anlyz img
   Future<void> _analyzeImage() async {
     if (_image == null && _webImage == null) return;
 
@@ -207,7 +207,7 @@ class _ScanPageState extends State<ScanPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // 🖼 Image preview
+            // Img view
             Container(
               height: 300,
               width: double.infinity,
@@ -232,7 +232,7 @@ class _ScanPageState extends State<ScanPage> {
 
             const SizedBox(height: 20),
 
-            // 📸 Buttons
+            // Btn
             Row(
               children: [
                 Expanded(
@@ -257,7 +257,7 @@ class _ScanPageState extends State<ScanPage> {
 
             const SizedBox(height: 30),
 
-            // 🔍 Analyze button
+            // Anlyz btn
             if ((_image != null || _webImage != null) && !_isLoading)
               SizedBox(
                 width: double.infinity,
@@ -286,14 +286,14 @@ class _ScanPageState extends State<ScanPage> {
     );
   }
 
-  // 📊 Result card
+  // Rslt card
   Widget _buildResultCard() {
     final result = _results!.first;
     final label = result['label'];
     final scoreValue = result['score'];
     final score = (result['score'] * 100).toStringAsFixed(2);
 
-    if (scoreValue < 0.50) {
+    if (scoreValue < 0.60) {
       return Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
@@ -359,7 +359,6 @@ class _ScanPageState extends State<ScanPage> {
       );
     }
 
-    // Fetching info from the English map
     final info =
         diseaseSuggestions[label] ??
         {
@@ -430,7 +429,7 @@ class _ScanPageState extends State<ScanPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "✅ Do's:",
+                      "Do's:",
                       style: TextStyle(
                         color: Colors.green,
                         fontWeight: FontWeight.bold,
@@ -455,7 +454,7 @@ class _ScanPageState extends State<ScanPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "❌ Don'ts:",
+                      "Don'ts:",
                       style: TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.bold,

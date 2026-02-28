@@ -219,14 +219,16 @@ class _SkinQuizPageState extends State<SkinQuizPage> {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
+              // ignore: deprecated_member_use
               color: Colors.teal.withOpacity(0.05),
               borderRadius: BorderRadius.circular(20),
+              // ignore: deprecated_member_use
               border: Border.all(color: Colors.teal.withOpacity(0.1)),
             ),
             child: Column(
               children: [
                 const Text(
-                  "✨ Expert Recommendation:",
+                  "Expert Recommendation:",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 const SizedBox(height: 10),

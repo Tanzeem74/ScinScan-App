@@ -68,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 30),
 
-            // Profile Information
+            // Profile Info
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
